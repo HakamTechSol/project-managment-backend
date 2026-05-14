@@ -3,12 +3,20 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "nodeVersion": "20.x",
+        "helpers": false
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
       "dest": "server.js"
     }
   ]
