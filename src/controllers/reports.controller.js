@@ -12,9 +12,7 @@ export const dashboardStats = async (req, res) => {
 
     const data = {};
 
-    // =====================
-    // TOTAL / ACTIVE PROJECTS
-    // =====================
+   
     if (can("dashboard.view.total_projects")) {
       const [[projects]] = await pool.query(`
         SELECT 

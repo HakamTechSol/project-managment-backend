@@ -6,7 +6,6 @@ const normalizeRange = (range = "month") => {
 };
 
 const toNumber = (value) => Number(value || 0);
-
 export const getFinanceStats = async (req, res) => {
   try {
     const days = normalizeRange(req.query.range);

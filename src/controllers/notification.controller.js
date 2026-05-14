@@ -8,7 +8,7 @@ import { pool } from "../../config/db.js";
 export const getNotifications = async (req, res) => {
   try {
     const userId = req.user.id;
-    const roleId = req.user.role_id; // assume middleware set karta hai
+    const roleId = req.user.role_id; 
 
     let query = `
       SELECT 
