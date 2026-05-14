@@ -1,0 +1,29 @@
+name: Deploy Backend to CWP
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Sync Files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /pmbackend.hakamtechsol.com/ 
+          exclude: |
+            **/node_modules/**
+            .git*
+            .env
+
+      # Naya Step: Server ko batana ke restart ho jaye
+      - name: Restart Server via Trigger
+        run: |
+          curl -s https://pmbackend.hakamtechsol.com/api/git-deploy-restart || echo "Restart trigger sent"
