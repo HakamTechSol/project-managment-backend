@@ -1,7 +1,11 @@
 {
   "version": 2,
-  "framework": null,
-  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
