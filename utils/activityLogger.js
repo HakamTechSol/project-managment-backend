@@ -1,7 +1,7 @@
 import { pool } from "../config/db.js";
 
 /**
- * Log activity to database
+ * Log activity to database 
  * @param {number} userId - ID of user performing the action
  * @param {string} action - Action type (CREATE, UPDATE, DELETE, etc.)
  * @param {string} entityType - Type of entity (Project, Task, User, Role, Permission, etc.)

@@ -10,7 +10,7 @@ import { emitToUser } from "../services/socket.service.js";
  */
 export const getUsers = async (req, res) => {
   try {
-    const loggedInUserId = req.user.id; // 🔑 current user
+    const loggedInUserId = req.user.id; 
 
     const [rows] = await pool.query(
       `
