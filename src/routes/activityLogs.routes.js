@@ -8,7 +8,7 @@ import { requirePermission } from "../middleware/permission.js";
 
 const router = express.Router();
 
-// Admin system logs
+
 router.get(
   "/activity-logs",
   requireAuth,
